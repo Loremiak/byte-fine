@@ -41,6 +41,7 @@ function App() {
             onClick={() => {}}
             src="src\assets\img.svg"
             alt="Image"
+            isFileInput
           >
             Image
           </ContentButton>
@@ -48,10 +49,10 @@ function App() {
             onClick={() => {}}
             src="src\assets\background.svg"
             alt="Background image"
+            isFileInput
           >
             Background
           </ContentButton>
-          <input type="file" id="fileInput" />
         </div>
 
         <LineSeparator />
