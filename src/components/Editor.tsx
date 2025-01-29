@@ -1,27 +1,17 @@
-import { useState } from "react";
+import { ReactNode } from 'react';
 
-const Editor = () => {
-  const [bgImage, setBgImage] = useState(null);
+type EditorProps = {
+	src: string | undefined;
+	children: ReactNode;
+};
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        setBgImage(e.target?.result);
-      };
-
-      reader.readAsDataURL(file);
-    }
-  };
-
-  return (
-    <div className="min-w-[759px] bg-[#9B9B9B]">
-      <img src="src\assets\start-img.png" />
-    </div>
-  );
+const Editor: React.FC<EditorProps> = ({ src, children }) => {
+	return (
+		<div className='relative min-w-[759px] bg-[#9B9B9B]'>
+			<img src={src} className='object-contain w-full h-full' />
+			{children}
+		</div>
+	);
 };
 
 export default Editor;
